@@ -28,7 +28,7 @@ mybatis-plus:
 
 jwt:
   token:
-    tokenExpiration: 120
+    tokenExpiration: 100
     tokenSignKey: carsale123
 
 #  inventory

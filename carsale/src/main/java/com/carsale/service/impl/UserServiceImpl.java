@@ -92,9 +92,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             return Result.build(data,ResultCodeEnum.no_Resource);
         }
 
-        System.out.println(!StringUtils.isEmpty(user.getPassword()));
-        System.out.println(user.getPassword().equals(dbuser.getPassword()));
-
         if (!StringUtils.isEmpty(user.getPassword()) && user.getPassword().equals(dbuser.getPassword())) {
             String token = jwtHelper.createToken(Long.valueOf(dbuser.getId()));
 
@@ -133,7 +130,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         //分页
         IPage<Map<String, Object>> result = userMapper.selectMapsPage(mapPage,null);
         List<Map<String, Object>> records = result.getRecords(); // 查询结果列表
-        System.out.println("records = " + records);
+        //System.out.println("records = " + records);
         //count User 不导入queryWrapper
         //LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
         Long count = userMapper.selectCount(null);
