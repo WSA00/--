@@ -10,10 +10,12 @@ import java.util.Date;
 @Data
 public class orderResponse {
     private Integer id;
-    private String user;
-    private String warehouse;
-    private String phone;
-    private String model;
     private String brand;
+    private String model;
+    private String user;
+    private String phone;
+    private String warehouse;
     private Date createtime;
+
 }
+

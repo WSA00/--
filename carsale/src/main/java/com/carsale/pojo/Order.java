@@ -1,17 +1,22 @@
 package com.carsale.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
  * @TableName order
  */
 @Data
+@TableName("Order")
 public class Order implements Serializable {
-    @TableId(value = "orderid")
+
+    @TableId
     private Integer id;
 
     private Integer productId;

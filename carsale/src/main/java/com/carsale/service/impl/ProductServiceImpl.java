@@ -88,7 +88,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
 
             ProductResponse productResponse = new ProductResponse(product);
             productResponse.setSales(productMapper.saleOfCarById((Integer) record.get("id")));
-            System.out.println("WWWMMMM"+productMapper.saleOfCarById((Integer) record.get("id")));
+
             list.add(productResponse);
         }
 

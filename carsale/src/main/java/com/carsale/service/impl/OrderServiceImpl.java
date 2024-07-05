@@ -9,6 +9,7 @@ import com.carsale.response.*;
 import com.carsale.service.OrderService;
 import com.carsale.mapper.OrderMapper;
 import com.carsale.utils.Result;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,13 +51,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>
         for (Order record : records) {
             orderResponse orderResponse = new orderResponse();
             orderResponse.setId(record.getId());
-            orderResponse.setCreatetime(record.getCreatetime());
+            System.out.println(record.getId());
             orderResponse.setBrand(productMapper.selectProductBrandById(record.getProductId()));
             orderResponse.setModel(productMapper.selectProductModelById(record.getProductId()));
-            orderResponse.setPhone(userMapper.selectUserPhoneById(record.getUserId()));
             orderResponse.setUser(userMapper.selectUserNameById(record.getUserId()));
+            orderResponse.setPhone(userMapper.selectUserPhoneById(record.getUserId()));
             orderResponse.setWarehouse(warehouseMapper.selectLocationById(record.getWarehouseId()));
-
+            orderResponse.setCreatetime(record.getCreatetime());
             list.add(orderResponse);
         }
 
@@ -71,27 +72,19 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>
         return Result.ok(data);
     }
 
+
     @Override
     public Result selectOrderById(Integer id) {
-//        Order order = orderMapper.selectOrderById(id);
-//        orderResponse orderResponse = new orderResponse();
-//
-//        orderResponse.setId(order.getId());
-//        orderResponse.setProduct(productMapper.selectById(order.getProductid()));
-//        orderResponse.setUser(new autoLoginResponse(userMapper.selectById(order.getUserid())));
-//        orderResponse.setWarehouse(warehouseMapper.selectWarehouseById(order.getWarehouseid()));
-//
-//        Map data = new LinkedHashMap();
-//        data.put("tip","成功获取订单");
-//        data.put("id",id);
-//        data.put("product",orderResponse.getProduct());
-//        data.put("user",orderResponse.getUser());
-//        data.put("warehouse",orderResponse.getWarehouse());
-//
-//        return Result.ok(data);
-        return null;
+        Order order = orderMapper.selectById(id);
+        Map data = new LinkedHashMap();
+        data.put("tip","成功获取订单");
+        data.put("order",order);
+
+        return Result.ok(data);
+
     }
 
+    //没用上
     @Override
     public Result UpdateOrderById(Integer id, Integer productId, Integer userId, Integer warehouseId) {
         Order order = new Order();
@@ -113,11 +106,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>
     public Result createOrder(Order order) {
 
         orderMapper.insertOrder(order);
-        Order dbOrder = orderMapper.selectOrderById(order.getId());
 
         Map data = new LinkedHashMap();
         data.put("tip","成功创建订单");
-        data.put("order", dbOrder);
+        data.put("order", order);
 
         return Result.ok(data);
     }

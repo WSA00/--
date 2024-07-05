@@ -11,8 +11,10 @@ import lombok.Data;
  * @TableName warehouse
  */
 @Data
+@TableName("warehouse")
 public class Warehouse implements Serializable {
-    @TableId("warehouseid")
+
+    @TableId
     private Integer id;
 
     private String location;

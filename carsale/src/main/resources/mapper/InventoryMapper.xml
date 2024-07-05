@@ -6,8 +6,8 @@
 
     <resultMap id="BaseResultMap" type="com.carsale.pojo.Inventory">
             <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="productid" column="productId" jdbcType="INTEGER"/>
-            <result property="warehouseid" column="warehouseId" jdbcType="INTEGER"/>
+            <result property="productId" column="productId" jdbcType="INTEGER"/>
+            <result property="warehouseId" column="warehouseId" jdbcType="INTEGER"/>
             <result property="quantity" column="quantity" jdbcType="INTEGER"/>
     </resultMap>
 

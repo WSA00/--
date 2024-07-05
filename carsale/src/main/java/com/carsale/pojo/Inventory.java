@@ -11,13 +11,16 @@ import lombok.Data;
  * @TableName inventory
  */
 @Data
+@TableName("inventory")
 public class Inventory implements Serializable {
-    @TableId(value = "inventoryid")
+
+
+    @TableId
     private Integer id;
 
-    private Integer productid;
+    private Integer productId;
 
-    private Integer warehouseid;
+    private Integer warehouseId;
 
     private Integer quantity;
 

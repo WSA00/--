@@ -30,3 +30,18 @@ jwt:
   token:
     tokenExpiration: 120
     tokenSignKey: carsale123
+
+#  inventory
+#  id  productId  warehouseId  quantity
+#  order
+#  id  userId  productId  warehouseId  createtime
+#  product
+#  id  name  model  price
+#  supplier
+#  id  name  phone
+#  supply
+#  id  productId  warehouseId  supplierId  quantity
+#  user
+#  id  username  phone
+#  warehouse
+#  id  location

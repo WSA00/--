@@ -18,7 +18,9 @@
         FROM warehouse
         WHERE warehouse.id IN (SELECT DISTINCT warehouseId
                                FROM inventory
-                               WHERE productId = #{productId})
+                               WHERE productId = #{productId}
+                                 AND quantity > 0
+                               )
     </select>
 
     <select id="selectWarehouseAndInventoryById" resultType="com.carsale.pojo.Product">
@@ -26,7 +28,9 @@
         from product
         where product.id IN (select DISTINCT productId
                              from inventory
-                             where warehouseId = #{warehouseId})
+                             where warehouseId = #{warehouseId}
+                               AND quantity > 0
+                             )
     </select>
 
     <select id="selectWarehouseById" resultType="com.carsale.pojo.Warehouse">

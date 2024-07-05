@@ -18,7 +18,9 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @TableName user
  */
 @Data
+@TableName("user")
 public class User implements Serializable, UserDetails {
+
     @TableId
     private Integer id;
 

@@ -11,8 +11,10 @@ import lombok.Data;
  * @TableName product
  */
 @Data
+@TableName("product")
 public class Product implements Serializable {
-    @TableId(value = "productid")
+
+    @TableId
     private Integer id;
 
     private String name;

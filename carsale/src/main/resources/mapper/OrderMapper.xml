@@ -18,8 +18,8 @@
     </sql>
 
     <insert id="insertOrder" parameterType="com.carsale.pojo.Order" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO `order` (productId, userId, warehouseId)
-        VALUES (#{TableOrder.productId}, #{TableOrder.userId}, #{TableOrder.warehouseId});
+        INSERT INTO `order` (productId, userId, warehouseId, createtime)
+        VALUES (#{TableOrder.productId}, #{TableOrder.userId}, #{TableOrder.warehouseId},#{TableOrder.createtime});
     </insert>
 
     <update id="updateOrderById" parameterType="com.carsale.pojo.Order">
